@@ -24,6 +24,10 @@ const AppContext = React.createContext();
 const AppProvider = ({ children }) => {
   const [state, dispatch] = useReducer(reducer, initialState);
 
+  const removeStory = (id) => {
+    dispatch({ type: REMOVE_STORY, payload: { id } });
+  };
+
   const fetchStories = async (url) => {
     dispatch({ type: "SET_LOADING" });
     const response = await fetch(url);
@@ -39,7 +43,9 @@ const AppProvider = ({ children }) => {
   }, []);
 
   return (
-    <AppContext.Provider value={{ ...state }}>{children}</AppContext.Provider>
+    <AppContext.Provider value={{ ...state, removeStory }}>
+      {children}
+    </AppContext.Provider>
   );
 };
 // make sure use
