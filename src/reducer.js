@@ -4,6 +4,7 @@ import {
   REMOVE_STORY,
   HANDLE_PAGE,
   HANDLE_SEARCH,
+  TOGGLE_MODE,
 } from "./actions";
 
 const reducer = (state, action) => {
@@ -48,6 +49,13 @@ const reducer = (state, action) => {
         return { ...state, page: nextValue };
       }
 
+    case TOGGLE_MODE:
+      const { darkMode } = state;
+      return {
+        ...state,
+        darkMode: !darkMode,
+      };
+      break;
     default:
       throw new Error(`no matching ${action.type} action type`);
   }

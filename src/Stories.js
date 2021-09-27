@@ -18,7 +18,7 @@ const Stories = () => {
           <article className="story" key={objectID}>
             <h4 className="title">{title}</h4>
             <p className="info">
-              {points} by <span>{author} | </span> {num_comments} comments " "
+              {points} by <span>{author} | </span> {num_comments} comments
             </p>
             <a
               href={url}

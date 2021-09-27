@@ -44,11 +44,24 @@ Variables
   --max-width: 1170px;
   --fixed-width: 620px;
 }
+
 /*
 =============== 
 Global Styles
 ===============
 */
+
+.dark-theme {
+  --clr-bcg: #1b1f27;
+  --clr-font: #fff;
+  --clr-primary: #ffa7c4;
+}
+
+.light-theme {
+  --clr-bcg: #fff;
+  --clr-font: #282c35;
+  --clr-primary: #d23669;
+}
 
 *,
 ::after,
@@ -58,10 +71,10 @@ Global Styles
   box-sizing: border-box;
 }
 body {
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen,
-    Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
-  background: var(--clr-grey-10);
-  color: var(--clr-grey-1);
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen,
+    Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif;
+  background: var(--clr-bcg);
+  color: var(--clr-font);
   line-height: 1.5;
   font-size: 0.875rem;
 }
@@ -94,7 +107,7 @@ h4 {
 }
 p {
   margin-bottom: 1.25rem;
-  color: var(--clr-grey-3);
+  color: var(--clr-font);
 }
 @media screen and (min-width: 800px) {
   h1 {
@@ -154,7 +167,7 @@ Search
   background: transparent;
   padding: 1rem;
   font-size: 1rem;
-  color: var(--clr-grey-3);
+  color: var(--clr-font);
   text-transform: uppercase;
   letter-spacing: var(--spacing);
   margin-top: 1rem;
@@ -165,6 +178,16 @@ Search
 Buttons
 ===============
 */
+
+.toggle-btn {
+  position: fixed;
+  right: 4rem;
+  background: transparent;
+  border: none;
+  color: var(--clr-font);
+  font-size: 1.5rem;
+  cursor: pointer;
+}
 
 .btn-container {
   width: 90vw;
@@ -189,7 +212,7 @@ Buttons
   border-color: transparent;
   background: var(--clr-primary-5);
   border-radius: var(--radius);
-  color: var(--clr-white);
+  color: var(--clr-font);
   letter-spacing: var(--spacing);
   cursor: pointer;
 }
@@ -243,7 +266,7 @@ Story
   }
 }
 .story {
-  background: var(--clr-white);
+  background: var(--clr-bcg);
   border-radius: var(--radius);
   padding: 1rem 2rem;
 }
@@ -254,7 +277,7 @@ Story
 }
 .info {
   margin-bottom: 0.5rem;
-  color: var(--clr-grey-5);
+  color: var(--clr-font);
 }
 
 .read-link {
@@ -266,9 +289,54 @@ Story
 
 .remove-btn {
   background: transparent;
-  color: var(--clr-red-dark);
+  color: var(--clr-red-light);
   border-color: transparent;
   cursor: pointer;
   text-transform: capitalize;
   font-size: 0.85rem;
+}
+
+hr {
+  opacity: 0.25;
+  width: 80vw;
+  margin: 0 auto;
+}
+
+.footer {
+  display: flex;
+  justify-content: space-evenly;
+  align-items: center;
+  margin: 1.25rem auto;
+  width: 90vw;
+}
+
+.footer p {
+  margin-top: 1rem;
+  font-size: 1.25rem;
+}
+
+.link-container a {
+  padding: 0 0.5rem;
+  font-size: 1.75rem;
+  color: #aaa;
+}
+
+.link-container a:hover {
+  color: var(--clr-primary-3);
+}
+
+.author {
+  color: var(--clr-primary-3);
+}
+
+@media (max-width: 580px) {
+  .footer {
+    flex-direction: column;
+  }
+  .footer p {
+    font-size: 1rem;
+  }
+  .toggle-btn {
+    right: 1rem;
+  }
 }
